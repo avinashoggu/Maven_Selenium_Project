@@ -38,7 +38,7 @@ public class TestBase {
 			test.log(LogStatus.INFO, result.getName() + " test is started");
 		}
 	}
-//After Method
+//*****comment
 	@AfterMethod()
 	public void afterMethod(ITestResult result) {
 		getresult(result);
