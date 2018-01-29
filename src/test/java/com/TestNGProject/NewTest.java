@@ -69,7 +69,7 @@ public class NewTest extends TestBase{
 			//driver.findElement(By.xpath("//*contains[text(),'"+datetext+"']")).isDisplayed();
 			driver.findElement(By.linkText(day)).click();	
 		
-		//*********	
+		//********* changes from git	
 			String typeofwotk=finalpart+"/td[1]/following-sibling::td[4]/div/table/tbody/tr/td[2]/em/button";
 			driver.findElement(By.xpath(typeofwotk)).click();
 			if(i==1) {
