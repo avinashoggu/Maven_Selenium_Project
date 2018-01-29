@@ -2,6 +2,7 @@ package com.TestNGProject;
 
 import org.testng.annotations.Test;
 
+import com.AppModule.Signin_Action;
 import com.TestBase.TestBase;
 
 import org.testng.annotations.BeforeMethod;
@@ -18,11 +19,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 
 public class NewTest extends TestBase{
-	static WebDriver driver;
+	private static WebDriver driver=null;
   @Test
   @Parameters ({"username","password"})
-  public void f(String username,String password) throws InterruptedException {
-	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  public void f(String username, String password) throws InterruptedException {
+	  
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='username']")).sendKeys(username);
 		driver.findElement(By.xpath(".//*[@id='loginFormContainer']/tbody/tr[1]/td/table/tbody/tr[2]/td/input")).sendKeys(password);
 		driver.findElement(By.xpath(".//*[@id='loginButton']/div")).click();
@@ -66,7 +68,7 @@ public class NewTest extends TestBase{
 			element2.click();*/
 			//driver.findElement(By.xpath("//*contains[text(),'"+datetext+"']")).isDisplayed();
 			driver.findElement(By.linkText(day)).click();	
-			
+		
 			
 			String typeofwotk=finalpart+"/td[1]/following-sibling::td[4]/div/table/tbody/tr/td[2]/em/button";
 			driver.findElement(By.xpath(typeofwotk)).click();
@@ -86,11 +88,11 @@ public class NewTest extends TestBase{
   }
   @BeforeMethod
   public void beforeMethod() {
+	 
 	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://online.actitime.com/areddy/login.do");
-	 
   }
 
   @AfterMethod
