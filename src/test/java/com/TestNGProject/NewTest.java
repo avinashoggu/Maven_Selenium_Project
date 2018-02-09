@@ -8,18 +8,24 @@ import com.TestBase.TestBase;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 
 public class NewTest extends TestBase{
 	private static WebDriver driver=null;
+	
   @Test
   @Parameters ({"username","password"})
   public void f(String username, String password) throws InterruptedException {
@@ -88,8 +94,31 @@ public class NewTest extends TestBase{
   }
   @BeforeMethod
   public void beforeMethod() {
+/*  @Parameters({"browserType"})
+  
+	  DesiredCapabilities dr=null;
+
+      if(browserType.equals("chrome")){
+
+      dr=DesiredCapabilities.chrome();
+
+      dr.setBrowserName("chrome");
+
+     dr.setPlatform(Platform.WINDOWS);
+
+      }else{
+
+               dr=DesiredCapabilities.internetExplorer();
+
+               dr.setBrowserName("iexplore");
+
+               dr.setPlatform(Platform.WINDOWS);
+
+      }
+
+      RemoteWebDriver driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dr);*/
 	 
-	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://online.actitime.com/areddy/login.do");
